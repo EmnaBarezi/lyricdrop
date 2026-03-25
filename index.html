@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LyricDrop</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="container">
+
+    <header class="header">
+      <h1>LyricDrop</h1>
+      <p>Test your music knowledge. Guess the missing word.</p>
+    </header>
+
+    <section class="search-section">
+      <div class="input-row">
+        <input type="text" id="artistInput" placeholder="Artist name" autocomplete="off"/>
+        <input type="text" id="songInput" placeholder="Song title" autocomplete="off"/>
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <button onclick="startGame()">Start Game</button>
+      </div>
+      <div class="error-box" id="errorBox" style="display:none;">
+        <p id="errorMsg"></p>
+      </div>
+    </section>
+
+    <section class="game-section" id="gameSection" style="display:none;">
+
+      <div class="song-info" id="songInfo"></div>
+
+      <div class="stats-bar">
+        <div class="stat">
+          <span class="stat-label">Score</span>
+          <span class="stat-value" id="score">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Best</span>
+          <span class="stat-value" id="highScore">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Streak</span>
+          <span class="stat-value" id="streak">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Lives</span>
+          <span class="stat-value" id="lives">3</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Level</span>
+          <span class="stat-value" id="levelDisplay">Medium</span>
+        </div>
+      </div>
+
+      <div class="lyrics-card" id="lyricsCard"></div>
+
+      <div class="guess-row" id="guessRow">
+        <input type="text" id="guessInput" placeholder="Type the missing word..." autocomplete="off"/>
+        <button onclick="checkGuess()">Guess</button>
+        <button class="hint-btn" onclick="showHint()">Hint</button>
+        <button class="skip-btn" onclick="skipQuestion()">Skip</button>
+      </div>
+
+      <div class="feedback" id="feedback"></div>
+
+    </section>
+
+    <section class="history-section" id="historySection" style="display:none;">
+      <h3>Recently Played</h3>
+      <ul id="historyList"></ul>
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
