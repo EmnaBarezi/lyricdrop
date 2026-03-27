@@ -106,6 +106,12 @@ function getWordsByDifficulty(words) {
   }
 }
 
+function replaceWordInLine(line, word, replacement) {
+  const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const regex = new RegExp('(?<![a-zA-Z])' + escaped + '(?![a-zA-Z])', '');
+  return line.replace(regex, replacement);
+}
+
 function showQuestion() {
   document.getElementById('feedback').textContent = '';
   document.getElementById('feedback').className = 'feedback';
@@ -143,9 +149,11 @@ function showQuestion() {
     missingWord = word1.toLowerCase().replace(/[^a-z]/g, '');
     missingWord2 = word2.toLowerCase().replace(/[^a-z]/g, '');
 
-    let display = line
-      .replace(word1, '<span class="blank hard">_ _ _</span>')
-      .replace(word2, '<span class="blank hard">_ _ _</span>');
+    let display = replaceWordInLine(line, word1, '|||BLANK1|||');
+    display = replaceWordInLine(display, word2, '|||BLANK2|||');
+    display = display
+      .replace('|||BLANK1|||', '<span class="blank hard">_ _ _</span>')
+      .replace('|||BLANK2|||', '<span class="blank hard">_ _ _</span>');
 
     document.getElementById('lyricsCard').innerHTML = `<p>${display}</p>`;
     document.getElementById('guessInput').placeholder = 'Type first missing word...';
@@ -162,7 +170,7 @@ function showQuestion() {
       blankDisplay = `<span class="blank">_ _ _</span>`;
     }
 
-    const display = line.replace(randomWord, blankDisplay);
+    const display = replaceWordInLine(line, randomWord, blankDisplay);
     document.getElementById('lyricsCard').innerHTML = `<p>${display}</p>`;
   }
 
