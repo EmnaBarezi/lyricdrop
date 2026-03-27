@@ -19,7 +19,7 @@ body {
 
 .header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 
 .header h1 {
@@ -35,6 +35,43 @@ body {
   font-size: 0.95rem;
   color: #4a6080;
   letter-spacing: 1px;
+}
+
+.stats-panel {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.stats-panel-item {
+  background: #0d1b2e;
+  border: 1px solid #1a2a40;
+  border-radius: 12px;
+  padding: 16px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 140px;
+}
+
+.stats-panel-label {
+  font-size: 0.7rem;
+  color: #4a6080;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.stats-panel-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.stats-panel-value.highlight {
+  color: #2a5298;
 }
 
 .search-section {
@@ -181,6 +218,17 @@ body {
   font-size: 1rem;
 }
 
+.blank.easy {
+  background: #1a5c3a;
+  letter-spacing: 3px;
+  padding: 4px 14px;
+}
+
+.blank.hard {
+  background: #5c1a1a;
+  letter-spacing: 4px;
+}
+
 .guess-row {
   display: flex;
   gap: 10px;
@@ -275,6 +323,68 @@ body {
   background: rgba(91, 141, 217, 0.08);
 }
 
+.game-over {
+  text-align: center;
+  padding: 20px;
+}
+
+.game-over p {
+  font-size: 1.1rem;
+  color: #c8d4e8;
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.game-over-stats {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.go-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: #111e30;
+  border: 1px solid #1a2a40;
+  border-radius: 10px;
+  padding: 14px 24px;
+}
+
+.go-stat span {
+  font-size: 0.7rem;
+  color: #4a6080;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.go-stat strong {
+  font-size: 1.4rem;
+  color: #ffffff;
+}
+
+.game-over button {
+  padding: 14px 32px;
+  border-radius: 8px;
+  border: none;
+  background: #2a5298;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.game-over button:hover {
+  background: #1e3c72;
+}
+
 .history-section {
   margin-top: 48px;
   border-top: 1px solid #1a2a40;
@@ -310,32 +420,4 @@ body {
 .history-section ul li span {
   color: #2a5298;
   font-weight: 600;
-}
-
-.game-over {
-  text-align: center;
-  padding: 20px;
-}
-
-.game-over p {
-  font-size: 1.1rem;
-  color: #c8d4e8;
-  margin-bottom: 20px;
-}
-
-.game-over button {
-  padding: 14px 32px;
-  border-radius: 8px;
-  border: none;
-  background: #2a5298;
-  color: white;
-  font-size: 0.95rem;
-  font-weight: 600;
-  font-family: 'Inter', sans-serif;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.game-over button:hover {
-  background: #1e3c72;
 }
