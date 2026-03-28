@@ -13,6 +13,7 @@ let correctGuesses = 0;
 let hardMode = false;
 let hardStep = 1;
 
+// I save these in localStorage so the user doesn't lose their progress
 let highScore = 0;
 let gamesPlayed = 0;
 let lastScore = 0;
@@ -51,6 +52,7 @@ window.startGame = async function() {
   document.getElementById('gameSection').style.display = 'none';
 
   try {
+    // Calling the Lyrics.ovh API with the artist and song the user typed
     const url = `https://api.lyrics.ovh/v1/${encodeURIComponent(artistInput.toLowerCase())}/${encodeURIComponent(songInput.toLowerCase())}`;
     const response = await fetch(url);
 
@@ -66,6 +68,7 @@ window.startGame = async function() {
       return;
     }
 
+    // I filter out short lines because they don't work well for the game
     lyrics = data.lyrics
       .split('\n')
       .map(l => l.trim())
@@ -106,6 +109,7 @@ function getWordsByDifficulty(words) {
   }
 }
 
+// I use placeholders to avoid replacing the wrong word when the same word appears twice
 function replaceWordInLine(line, word, replacement) {
   const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const regex = new RegExp('(?<![a-zA-Z])' + escaped + '(?![a-zA-Z])', '');
@@ -165,6 +169,7 @@ function showQuestion() {
 
     let blankDisplay;
     if (difficulty === 'easy') {
+      // For easy mode I show how many letters the word has
       blankDisplay = `<span class="blank easy">${'_ '.repeat(missingWord.length).trim()}</span>`;
     } else {
       blankDisplay = `<span class="blank">_ _ _</span>`;
