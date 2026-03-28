@@ -1,6 +1,6 @@
 # LyricDrop
 
-I built LyricDrop because I wanted to create something that goes beyond a typical web application. Instead of just displaying data, I wanted users to actually interact with it in a meaningful way. Music is something everyone connects with, so I thought — what if you could test how well you really know the songs you listen to every day?
+I built LyricDrop because I wanted to create something that goes beyond a typical web application. Instead of just displaying data, I wanted users to actually interact with it in a meaningful way. Music is something everyone connects with, so I thought what if you could test how well you really know the songs you listen to every day?
 
 LyricDrop fetches real song lyrics using an external API and turns them into an interactive guessing game. A word is hidden from a lyric line, and the user has to figure out what it is. It sounds simple, but it genuinely makes you pay attention to lyrics in a way that passive listening never does.
 
@@ -12,22 +12,22 @@ Beyond the basic game, the app tracks your performance over time. It saves your 
 
 ## Features
 
-- Real lyrics fetched live from the Lyrics.ovh API
-- Three difficulty levels that change how the game feels
-- Easy mode hides one short word and shows how many letters it has
-- Medium mode hides one word with no hints
-- Hard mode hides two words in the same line — you guess them one at a time
-- Hint button that reveals the first letter of the missing word
-- Skip button if you want to move to the next line
-- Score system with streak bonuses — the longer your streak, the more points you earn
-- Three lives per game before it ends
-- Best score, last score, and games played saved in localStorage
-- Recently played history showing your last five songs with scores and accuracy
-- Full error handling for empty inputs, songs not found, and connection issues
+- Real lyrics fetched live from the Lyrics.ovh API.
+- Three difficulty levels that change how the game feels.
+- Easy mode hides one short word and shows how many letters it has.
+- Medium mode hides one word with no hints.
+- Hard mode hides two words in the same line you guess them one at a time.
+- Hint button that reveals the first letter of the missing word.
+- Skip button if you want to move to the next line.
+- Score system with streak bonuses the longer your streak, the more points you earn.
+- Three lives per game before it ends.
+- Best score, last score, and games played saved in localStorage.
+- Recently played history showing your last five songs with scores and accuracy.
+- Full error handling for empty inputs, songs not found, and connection issues.
 
 ## Why I built it this way
 
-I wanted the app to feel like a real product, not a school exercise. The dark blue design was intentional — it feels modern and focused, like a music app should. The difficulty levels were important to me because they make the app accessible to casual users while still being genuinely challenging on Hard mode.
+I wanted the app to feel like a real product, not a school exercise. The dark blue design was intentional it feels modern and focused, like a music app should. The difficulty levels were important to me because they make the app accessible to casual users while still being genuinely challenging on Hard mode.
 
 The localStorage feature was something I added because I wanted users to feel like they were building something — a personal record of songs they have played and scores they have achieved.
 
@@ -60,7 +60,7 @@ The application is deployed on two web servers and a load balancer provided as p
 - Web02: http://44.203.115.14
 - Load Balancer: https://18.206.140.94
 
-### How I deployed it
+## How I deployed it
 
 I connected to each server using SSH from my local machine. On both Web01 and Web02, I had Nginx already installed. I cloned the GitHub repository directly into the /var/www/html directory on each server, which made Nginx serve the app automatically.
 
