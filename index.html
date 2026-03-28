@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LyricDrop</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- I used Inter from Google Fonts because it looks clean and modern -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
@@ -16,6 +17,7 @@
       <p>Test your music knowledge. Guess the missing word.</p>
     </header>
 
+    <!-- Stats panel showing last score, best score and games played -->
     <div class="stats-panel">
       <div class="stats-panel-item">
         <span class="stats-panel-label">Last Score</span>
@@ -35,6 +37,7 @@
       <div class="input-row">
         <input type="text" id="artistInput" placeholder="Artist name" autocomplete="off"/>
         <input type="text" id="songInput" placeholder="Song title" autocomplete="off"/>
+        <!-- Easy, Medium and Hard difficulty levels -->
         <select id="difficulty">
           <option value="easy">Easy</option>
           <option value="medium" selected>Medium</option>
@@ -42,11 +45,13 @@
         </select>
         <button onclick="startGame()">Start Game</button>
       </div>
+      <!-- Error box shown when song is not found or inputs are empty -->
       <div class="error-box" id="errorBox" style="display:none;">
         <p id="errorMsg"></p>
       </div>
     </section>
 
+    <!-- Game section is hidden until the API returns lyrics successfully -->
     <section class="game-section" id="gameSection" style="display:none;">
 
       <div class="song-info" id="songInfo"></div>
@@ -87,6 +92,7 @@
 
     </section>
 
+    <!-- Recently played shows the last 5 songs with score and accuracy -->
     <section class="history-section" id="historySection" style="display:none;">
       <h3>Recently Played</h3>
       <ul id="historyList"></ul>
