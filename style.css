@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+/* I chose a dark navy background to give it a music app feel */
 body {
   font-family: 'Inter', sans-serif;
   background-color: #070d1a;
@@ -70,6 +71,7 @@ body {
   color: #ffffff;
 }
 
+/* Best score is blue so it stands out from the others */
 .stats-panel-value.highlight {
   color: #2a5298;
 }
@@ -207,6 +209,7 @@ body {
   color: #c8d4e8;
 }
 
+/* Each difficulty level has its own blank color */
 .blank {
   display: inline-block;
   background: #2a5298;
@@ -220,13 +223,11 @@ body {
 
 .blank.easy {
   background: #1a5c3a;
-  letter-spacing: 3px;
-  padding: 4px 14px;
+  letter-spacing: 2px;
 }
 
 .blank.hard {
   background: #5c1a1a;
-  letter-spacing: 4px;
 }
 
 .guess-row {
@@ -297,6 +298,7 @@ body {
   color: #e8eaf0 !important;
 }
 
+/* Green for correct, red for wrong, blue for hint */
 .feedback {
   text-align: center;
   font-size: 1rem;
@@ -385,6 +387,7 @@ body {
   background: #1e3c72;
 }
 
+/* Recently played section at the bottom */
 .history-section {
   margin-top: 48px;
   border-top: 1px solid #1a2a40;
