@@ -27,9 +27,16 @@ Beyond the basic game, the app tracks your performance over time. It saves your 
 
 ## Why I built it this way
 
-I wanted the app to feel like a real product, not a school exercise. The dark blue design was intentional it feels modern and focused, like a music app should. The difficulty levels were important to me because they make the app accessible to casual users while still being genuinely challenging on Hard mode.
+I wanted LyricDrop to feel like something worth using, not just a project 
+to submit. The dark blue design was a deliberate choice, I wanted it to 
+feel like a music app, not a school exercise. I also spent time on the 
+difficulty system because I wanted the game to work for everyone. Easy mode 
+is forgiving and gives letter hints, Medium is the standard experience, and 
+Hard mode genuinely challenges you by hiding two words at once.
 
-The localStorage feature was something I added because I wanted users to feel like they were building something — a personal record of songs they have played and scores they have achieved.
+The localStorage feature came from thinking about what would make someone 
+want to come back. Seeing your best score and your history of played songs 
+makes it feel personal like the app remembers you.
 
 ## API used
 
