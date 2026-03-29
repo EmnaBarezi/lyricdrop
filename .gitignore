@@ -1,0 +1,16 @@
+# I don't want node_modules uploaded if I ever add packages
+node_modules/
+
+# Keeping environment variables and API keys off GitHub
+.env
+.env.local
+
+# Mac system files I don't need in the repo
+.DS_Store
+Thumbs.db
+
+# My VS Code personal settings
+.vscode/
+
+# Log files
+*.log
