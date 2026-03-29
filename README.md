@@ -91,7 +91,7 @@ The load balancer was already configured on the school infrastructure with HAPro
   
 ## Demo Video
 
-https://youtu.be/aCI8PCG-eD8
+https://youtu.be/DINvgE4CbMc
 
 ## Live Deployment
 
