@@ -1,18 +1,5 @@
 # LyricDrop
 
-## Demo Video
-https://youtu.be/aCI8PCG-eD8
-
-## Live Deployment
-- Web01: http://52.90.113.42
-- Web02: http://44.203.115.14
-- Load Balancer: https://18.206.140.94
-
-## API Keys
-This project uses the Lyrics.ovh API which requires no API key. It is completely free and open to use with no authentication needed.
-
----
-
 I built LyricDrop because I wanted to create something that goes beyond a typical web application. Instead of just displaying data, I wanted users to actually interact with it in a meaningful way. Music is something everyone connects with, so I thought what if you could test how well you really know the songs you listen to every day?
 
 LyricDrop fetches real song lyrics using an external API and turns them into an interactive guessing game. A word is hidden from a lyric line, and the user has to figure out what it is. It sounds simple, but it genuinely makes you pay attention to lyrics in a way that passive listening never does.
@@ -42,7 +29,7 @@ Beyond the basic game, the app tracks your performance over time. It saves your 
 
 I wanted the app to feel like a real product, not a school exercise. The dark blue design was intentional it feels modern and focused, like a music app should. The difficulty levels were important to me because they make the app accessible to casual users while still being genuinely challenging on Hard mode.
 
-The localStorage feature was something I added because I wanted users to feel like they were building something a personal record of songs they have played and scores they have achieved.
+The localStorage feature was something I added because I wanted users to feel like they were building something — a personal record of songs they have played and scores they have achieved.
 
 ## API used
 
@@ -94,3 +81,17 @@ The load balancer was already configured on the school infrastructure with HAPro
 - Lyrics data: Lyrics.ovh — https://lyrics.ovh
 - Font: Inter by Google Fonts — https://fonts.google.com
 - Built with HTML, CSS, and JavaScript — no frameworks or libraries used
+  
+## Demo Video
+
+https://youtu.be/aCI8PCG-eD8
+
+## Live Deployment
+
+- Web01: http://52.90.113.42
+- Web02: http://44.203.115.14
+- Load Balancer: https://18.206.140.94
+
+## API Keys
+
+This project uses the Lyrics.ovh API which requires no API key. It is completely free and open to use with no authentication needed.
