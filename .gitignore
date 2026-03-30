@@ -12,3 +12,5 @@ Thumbs.db
 # My VS Code personal settings
 .vscode/
 
+# Log files
+*.log
