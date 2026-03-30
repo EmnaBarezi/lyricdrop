@@ -259,3 +259,147 @@ window.checkGuess = function() {
   setTimeout(showQuestion, 1500);
 };
 
+// Hint reveals the first letter of the missing word
+window.showHint = function() {
+  if (!missingWord) return;
+  if (hardMode && hardStep === 2) {
+    showFeedback(`Hint: second word starts with "${missingWord2[0].toUpperCase()}"`, 'hint');
+  } else {
+    showFeedback(`Hint: the word starts with "${missingWord[0].toUpperCase()}"`, 'hint');
+  }
+};
+
+window.skipQuestion = function() {
+  streak = 0;
+  hardStep = 1;
+  updateStats();
+  if (hardMode && missingWord2) {
+    showFeedback(`Skipped! Words were "${missingWord}" and "${missingWord2}"`, 'wrong');
+  } else {
+    showFeedback(`Skipped! The word was "${missingWord}"`, 'wrong');
+  }
+  currentLine++;
+  setTimeout(showQuestion, 1000);
+};
+
+window.resetGame = function() {
+  score = 0;
+  streak = 0;
+  lives = 3;
+  currentLine = 0;
+  lyrics = [];
+  missingWord = '';
+  missingWord2 = '';
+  hardStep = 1;
+  totalGuesses = 0;
+  correctGuesses = 0;
+  fullLyrics = '';
+  updateStats();
+  document.getElementById('gameSection').style.display = 'none';
+  document.getElementById('artistInput').value = '';
+  document.getElementById('songInput').value = '';
+  document.getElementById('feedback').textContent = '';
+  document.getElementById('guessRow').style.display = 'flex';
+};
+
+function showGameOver(completed) {
+  lastScore = score;
+  gamesPlayed++;
+  const accuracy = totalGuesses > 0 ? Math.round((correctGuesses / totalGuesses) * 100) : 0;
+
+  try {
+    localStorage.setItem('lyricdrop_lastscore', lastScore);
+    localStorage.setItem('lyricdrop_gamesplayed', gamesPlayed);
+  } catch(e) {}
+
+  saveHistory(accuracy);
+  updateStatsPanel();
+
+  // Format full lyrics for display
+  const formattedLyrics = fullLyrics
+    .split('\n')
+    .map(line => line.trim())
+    .filter(line => line.length > 0)
+    .map(line => `<p style="margin: 4px 0; color: #c8d4e8; font-size: 0.95rem;">${line}</p>`)
+    .join('');
+
+  document.getElementById('lyricsCard').innerHTML = `
+    <div class="game-over">
+      <p>${completed ? 'Song completed!' : 'Game over!'}</p>
+      <div class="game-over-stats">
+        <div class="go-stat"><span>Score</span><strong>${score}</strong></div>
+        <div class="go-stat"><span>Accuracy</span><strong>${accuracy}%</strong></div>
+        <div class="go-stat"><span>Best</span><strong>${highScore}</strong></div>
+      </div>
+      <div style="margin: 24px 0; text-align: left; background: #070d1a; border: 1px solid #1a2a40; border-radius: 12px; padding: 20px; max-height: 300px; overflow-y: auto;">
+        <p style="font-size: 0.7rem; color: #4a6080; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;">Full Lyrics — ${currentArtist} / ${currentSong}</p>
+        ${formattedLyrics}
+      </div>
+      <button onclick="resetGame()">Play Again</button>
+    </div>
+  `;
+  document.getElementById('guessRow').style.display = 'none';
+}
+
+function updateStatsPanel() {
+  if (document.getElementById('statLastScore')) {
+    document.getElementById('statLastScore').textContent = lastScore;
+    document.getElementById('statBestScore').textContent = highScore;
+    document.getElementById('statGamesPlayed').textContent = gamesPlayed;
+  }
+}
+
+function saveHistory(accuracy) {
+  const entry = {
+    artist: currentArtist,
+    song: currentSong,
+    score: score,
+    accuracy: accuracy,
+    difficulty: difficulty
+  };
+  playHistory.unshift(entry);
+  if (playHistory.length > 5) playHistory = playHistory.slice(0, 5);
+  try { localStorage.setItem('lyricdrop_history', JSON.stringify(playHistory)); } catch(e) {}
+  renderHistory();
+}
+
+function renderHistory() {
+  if (playHistory.length === 0) return;
+  document.getElementById('historySection').style.display = 'block';
+  const list = document.getElementById('historyList');
+  list.innerHTML = '';
+  playHistory.forEach(entry => {
+    const li = document.createElement('li');
+    li.innerHTML = `${entry.artist} - ${entry.song} <span>${entry.score} pts · ${entry.accuracy}%</span>`;
+    list.appendChild(li);
+  });
+}
+
+function showFeedback(msg, type) {
+  const fb = document.getElementById('feedback');
+  fb.textContent = msg;
+  fb.className = `feedback ${type}`;
+}
+
+function updateStats() {
+  document.getElementById('score').textContent = score;
+  document.getElementById('streak').textContent = streak;
+  document.getElementById('lives').textContent = lives;
+  document.getElementById('highScore').textContent = highScore;
+}
+
+function showError(msg) {
+  document.getElementById('errorBox').style.display = 'block';
+  document.getElementById('errorMsg').textContent = msg;
+}
+
+function hideError() {
+  document.getElementById('errorBox').style.display = 'none';
+}
+
+// Allow user to press Enter instead of clicking the Guess button
+document.addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') checkGuess();
+});
+
+
