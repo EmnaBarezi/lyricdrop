@@ -13,7 +13,7 @@ LyricDrop fetches real song lyrics using an external API and turns them into an 
 ---
 
 ## Demo Video
-https://youtu.be/DINvgE4CbMc
+https://youtu.be/QKR6tCTo0dg
 
 ---
 
