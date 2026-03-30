@@ -6,7 +6,7 @@
 ![API](https://img.shields.io/badge/Lyrics.ovh-API-brightgreen?style=flat)
 ![Nginx](https://img.shields.io/badge/Nginx-009639?style=flat&logo=nginx&logoColor=white)
 
-I built LyricDrop because I wanted to create something that goes beyond a typical web application. Instead of just displaying data, I wanted users to actually interact with it in a meaningful way. Music is something everyone connects with, so I thought — what if you could test how well you really know the songs you listen to every day?
+I built LyricDrop because I wanted to create something that goes beyond a typical web application. Instead of just displaying data, I wanted users to actually interact with it in a meaningful way. Music is something everyone connects with, so I thought what if you could test how well you really know the songs you listen to every day?
 
 LyricDrop fetches real song lyrics using an external API and turns them into an interactive guessing game. A word is hidden from a lyric line, and the user has to figure out what it is. It sounds simple, but it genuinely makes you pay attention to lyrics in a way that passive listening never does.
 
@@ -59,7 +59,7 @@ Web01        Web02
 
 The user types in an artist name and a song title. The app calls the Lyrics.ovh API, fetches the real lyrics for that song, and presents them one line at a time with a missing word. The user guesses the word, earns points, and tries to keep their streak alive without losing all three lives.
 
-Beyond the basic game, the app tracks your performance over time. It saves your best score, your last score, and how many games you have played — all stored locally in your browser so your progress is never lost. At the end of every game, the full lyrics of the song are displayed so the user can actually read and learn them.
+Beyond the basic game, the app tracks your performance over time. It saves your best score, your last score, and how many games you have played all stored locally in your browser so your progress is never lost. At the end of every game, the full lyrics of the song are displayed so the user can actually read and learn them.
 
 ---
 
@@ -84,11 +84,11 @@ Beyond the basic game, the app tracks your performance over time. It saves your 
 
 ## Why I built it this way
 
-I wanted LyricDrop to feel like something worth using, not just a project to submit. The dark blue design was a deliberate choice — I wanted it to feel like a music app, not a school exercise. I also spent time on the difficulty system because I wanted the game to work for everyone. Easy mode is forgiving and gives letter hints, Medium is the standard experience, and Hard mode genuinely challenges you by hiding two words at once.
+I wanted LyricDrop to feel like something worth using, not just a project to submit. The dark blue design was a deliberate choice I wanted it to feel like a music app, not a school exercise. I also spent time on the difficulty system because I wanted the game to work for everyone. Easy mode is forgiving and gives letter hints, Medium is the standard experience, and Hard mode genuinely challenges you by hiding two words at once.
 
-The localStorage feature came from thinking about what would make someone want to come back. Seeing your best score and your history of played songs makes it feel personal — like the app remembers you.
+The localStorage feature came from thinking about what would make someone want to come back. Seeing your best score and your history of played songs makes it feel personal like the app remembers you.
 
-The full lyrics feature was something I added at the end because I wanted the app to be genuinely useful beyond the game itself. After each round, you can read the complete lyrics — which turns it into a real learning tool.
+The full lyrics feature was something I added at the end because I wanted the app to be genuinely useful beyond the game itself. After each round, you can read the complete lyrics which turns it into a real learning tool.
 
 ---
 
