@@ -315,7 +315,7 @@ function showGameOver(completed) {
   saveHistory(accuracy);
   updateStatsPanel();
 
-  // Format full lyrics for display
+  // This is the Format full lyrics for display
   const formattedLyrics = fullLyrics
     .split('\n')
     .map(line => line.trim())
@@ -397,7 +397,7 @@ function hideError() {
   document.getElementById('errorBox').style.display = 'none';
 }
 
-// Allow user to press Enter instead of clicking the Guess button
+// This Allow user to press Enter instead of clicking the Guess button
 document.addEventListener('keypress', function(e) {
   if (e.key === 'Enter') checkGuess();
 });
